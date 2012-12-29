@@ -10,6 +10,11 @@ define('THEME_IMAGES', THEME_URI . '/images');
 define('THEME_CSS', THEME_URI . '/css');
 define('THEME_JS', THEME_URI . '/js');
 
+function ks_load_scripts() {	
+	wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'ks_load_scripts');
+
 function wp_better_blog_title($post) {
 	/**
 	 *  Sets the page title based on content type

@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="<?php echo THEME_CSS; ?>/main.css">
 
     <script src="<?php echo THEME_JS; ?>/vendor/modernizr-2.6.2.min.js"></script>
+
+    <?php wp_head(); ?>
 </head>
 <body>
 <!--[if lt IE 7]>
