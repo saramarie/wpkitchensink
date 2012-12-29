@@ -15,6 +15,11 @@ function ks_load_scripts() {
 }
 add_action('wp_enqueue_scripts', 'ks_load_scripts');
 
+function ks_add_theme_support() {
+	add_theme_support('automatic_feed_links');
+}
+add_action('init', 'ks_add_theme_support');
+
 function wp_better_blog_title($post) {
 	/**
 	 *  Sets the page title based on content type

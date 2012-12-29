@@ -17,16 +17,14 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="<?php echo THEME_CSS; ?>/normalize.css">
-    <link rel="stylesheet" href="<?php echo THEME_CSS; ?>/main.css">
+    <link rel="stylesheet" href="<?php echo THEME_CSS; ?>/stylesheets/screen.css">
 
     <script src="<?php echo THEME_JS; ?>/vendor/modernizr-2.6.2.min.js"></script>
 
+    <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
-
-<!-- Add your site or application content here -->
