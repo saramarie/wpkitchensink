@@ -1,6 +1,7 @@
 @import "normalize";
 @include normalize;
 @import "compass/utilities/general";
+@import "susy";
 
 $font-color: #222;
 $font-size: 1em;
@@ -170,3 +171,29 @@ textarea {
     }
 }
 
+/* Susy Grid */
+$total-columns: 12;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width;
+
+.container {
+	@include container;
+
+	header,
+	footer {
+		clear:both;
+	}
+
+	nav {
+		@include span-columns(12,12);
+	}
+
+	.content {
+		@include span-columns(9,12);
+	}
+
+	.sidebar {
+		@include span-columns(3 omega,12);
+	}
+}
