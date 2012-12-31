@@ -457,6 +457,22 @@ textarea {
   display: inline;
 }
 /* line 196, ../sass/screen.scss */
+.container .prev-link {
+  width: 43.18182%;
+  float: left;
+  margin-right: 2.27273%;
+  display: inline;
+}
+/* line 200, ../sass/screen.scss */
+.container .next-link {
+  width: 43.18182%;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  display: inline;
+  text-align: right;
+}
+/* line 205, ../sass/screen.scss */
 .container .sidebar {
   width: 23.72881%;
   float: right;

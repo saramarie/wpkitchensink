@@ -193,6 +193,15 @@ $grid-padding: $gutter-width;
 		@include span-columns(9,12);
 	}
 
+	.prev-link {
+		@include span-columns(4,9);
+	}
+
+	.next-link {
+		@include span-columns(4 omega,9);
+		text-align: right;
+	}
+
 	.sidebar {
 		@include span-columns(3 omega,12);
 	}

@@ -11,11 +11,23 @@
         <?php ks_post_meta(); // Outputs post meta in handy UL format ?>
 
         <div class="post-content">
-	        <?php the_content(); ?>
+        	<?php if (is_single()) : ?>
+		        <?php the_content(); ?>
+		    <?php else : ?>
+		    	<?php the_excerpt(); ?>
+			<?php endif; ?>
+
+			<?php wp_link_pages('<div>','</div>'); ?>
 	    </div>
     </article>
 <?php endwhile; ?>
-<!-- post navigation -->
+	<?php if(is_single()) : ?>
+		<div class="prev-link"><?php previous_post_link(); ?></div>
+		<div class="next-link"><?php next_post_link(); ?></div>
+	<?php else : ?>
+		<div class="prev-link"><?php previous_posts_link(); ?></div>
+		<div class="next-link"><?php next_posts_link(); ?></div>
+	<?php endif; ?>
 <?php else: ?>
 <!-- no posts found -->
 <?php endif; ?>

@@ -36,3 +36,7 @@
     <h1><a href="<?php bloginfo('wpurl') ?>"><?php bloginfo('name'); ?></a></h1>
     <p class="tagline"><?php bloginfo('description'); ?></p>
 </header>
+
+<nav>
+    <?php wp_nav_menu(array('theme_location' => 'main_menu', 'container' => '')); ?>
+</nav>
