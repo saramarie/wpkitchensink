@@ -1,4 +1,4 @@
-<?php global $post; ?>
+<?php global $post, $page, $paged; $post_id = $post->ID; ?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -9,10 +9,11 @@
     <meta charset="bloginfo('charset');">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title><?php echo wp_better_blog_title($post); ?></title>
+    <title>
+        <?php bloginfo('name'); ?>
+        <?php ks_blog_title(); ?>
+    </title>
 
-    <!-- Replace description with theme options field later -->
-    <meta name="description" content="<?php bloginfo('description'); ?>">
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -30,3 +31,8 @@
 <![endif]-->
 
 <div class="container"><!-- Start container -->
+
+<header>
+    <h1><a href="<?php bloginfo('wpurl') ?>"><?php bloginfo('name'); ?></a></h1>
+    <p class="tagline"><?php bloginfo('description'); ?></p>
+</header>

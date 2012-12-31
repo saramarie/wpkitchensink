@@ -20,29 +20,34 @@ function ks_add_theme_support() {
 }
 add_action('init', 'ks_add_theme_support');
 
-function wp_better_blog_title($post) {
-	/**
-	 *  Sets the page title based on content type
-	 */
+function ks_blog_title() {
+    wp_title(' | ', true, last); 
 
-	$post_id = $wp_query->post->ID; // Get the post ID outside of any loop
+    $tagline = get_bloginfo('description');
 
-	$blog_title = get_bloginfo('name');
-	$title = '';
+    if ($tagline && (is_home($post_id) || is_front_page($post_id))) {
+        echo ' | ' . $tagline;
+    }
 
-	if (is_tag($post_id)) {
-		$title = ' | Tag: ' . single_tag_title($post_id, false);
-	} elseif (is_category($post_id)) {
-		$title = ' | Category: ' . single_cat_title($post_id, false);
-	} elseif (is_archive($post_id)) {
-		$title = ' | Archive';
-	} elseif (is_404($post_id)) {
-		$title = ' | Not Found';
-	} elseif (is_home($post_id)) {
-		$title = ' | ' . get_bloginfo('description');
-	} elseif (is_single($post_id) || is_page($post_id)) {
-		$title = ' | ' . get_the_title($post_id);
+    if ($paged >= 2 || $page >= 2) {
+        echo ' | ' . sprintf(__('Page %s', 'kitchen_sink'), max($paged, $page));
+    }
+}
+add_action('init', 'ks_blog_title');
+
+function ks_post_meta() {
+	$tags_exist = get_the_tags($post_id);
+
+	$output = '<ul class="post-meta">';
+	$output .= '<li><a href="' . get_author_posts_url($post_author) . '">' . get_the_author($post_author) . '</a></li>';
+	$output .= '<li>' . get_the_time('F jS, Y', $post_id) . '</li>';
+	$output .= '<li>' . get_the_category_list(', ', '', $post_id) . '</li>';
+
+	if ($tags_exist) {
+		$output .= '<li>' . get_the_tag_list('Tags: ', ', ', '', $post_id) . '</li>';
 	}
 
-	return $blog_title . $title;
+	$output .= '</ul>';
+
+	echo $output;
 }
