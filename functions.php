@@ -36,10 +36,11 @@ function ks_blog_title() {
 add_action('init', 'ks_blog_title');
 
 function ks_post_meta() {
+	global $post;
 	$tags_exist = get_the_tags($post_id);
 
 	$output = '<ul class="post-meta">';
-	$output .= '<li><a href="' . get_author_posts_url($post_author) . '">' . get_the_author($post_author) . '</a></li>';
+	$output .= '<li><a href="' . get_author_posts_url($post->post_author) . '">' . get_the_author($post->post_author) . '</a></li>';
 	$output .= '<li>' . get_the_time('F jS, Y', $post_id) . '</li>';
 	$output .= '<li>' . get_the_category_list(', ', '', $post_id) . '</li>';
 
