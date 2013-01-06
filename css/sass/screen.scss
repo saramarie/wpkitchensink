@@ -108,6 +108,16 @@ textarea {
     visibility: hidden;
 }
 
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
 @media print {
     * {
         background: transparent !important;
@@ -205,4 +215,116 @@ $grid-padding: $gutter-width;
 	.sidebar {
 		@include span-columns(3 omega,12);
 	}
+}
+
+/* Base Theme Styles */
+.aligncenter {
+    margin: 20px auto;
+    display: block;
+}
+
+.alignleft {
+    margin: 20px 0;
+    margin-right: 20px;
+    float: left;
+}
+
+.alignright {
+    margin: 20px 0;
+    margin-left: 20px;
+    float: right;
+}
+
+.alignnone {
+    margin: 20px 0;
+    display: block;
+}
+
+.wp-caption-text {
+    text-align: center;
+}
+
+.post-content img {
+    max-width: 100%;
+}
+
+/* Theme's Suckerfish Menu */
+nav ul {
+    background-color: #000;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+    position: relative;
+    display: inline-table;
+
+    li {
+        float: left;
+
+        a {
+            color: #fff;
+            background-color: #000;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+
+            &:hover {
+                background-color: #222;
+            }
+        }
+
+        &:hover > ul {
+            display: block;
+        }
+    }
+
+    ul {
+        position: absolute;
+        top: 100%;
+        width: 150px;
+        display: none;
+
+        li {
+            float: none;
+            position: relative;
+
+            a {
+                &:hover {
+
+                }
+            }
+        }
+
+        ul {
+            position: absolute;
+            top: 0;
+            left: 100%;
+        }
+    }
+
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+/* Basic Post Meta Styling */
+.post-meta {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        font-size: 80%;
+        padding: 0 10px;
+        border-right: 1px solid #000;
+        float: left;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            border-right: 0;
+        }
+    }
 }

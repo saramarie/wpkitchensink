@@ -17,6 +17,7 @@ add_action('wp_enqueue_scripts', 'ks_load_scripts');
 
 function ks_add_theme_support() {
 	add_theme_support('automatic_feed_links');
+	add_theme_support('post-thumbnails');
 }
 add_action('init', 'ks_add_theme_support');
 
@@ -56,7 +57,7 @@ function ks_post_meta() {
 	global $post;
 	$tags_exist = get_the_tags();
 
-	$output = '<ul class="post-meta">';
+	$output = '<ul class="post-meta clearfix">';
 	$output .= '<li><a href="' . get_author_posts_url($post->post_author) . '">' . get_the_author() . '</a></li>';
 	$output .= '<li>' . get_the_time('F jS, Y') . '</li>';
 	$output .= '<li>' . get_the_category_list(', ', '') . '</li>';
